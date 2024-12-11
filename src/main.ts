@@ -1,24 +1,57 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+import "./style.css";
+//#region Header
+const app = document.getElementById("app");
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const header = document.createElement("header");
+header.classList.add("header");
+
+const h1 = document.createElement("h1");
+h1.innerHTML = "Get in touch!";
+h1.classList.add("header_title");
+
+const headerDiscription = document.createElement("p");
+headerDiscription.innerHTML =
+  "Contact us for help with Github, help(please) aswell us and yourself by joining our group.";
+
+const headerButtonsContainer = document.createElement("section");
+headerButtonsContainer.classList.add("header_buttons");
+
+const articles = [
+  {
+    name: "location",
+    imgSrc: "location.png",
+    text: "MedieInstitutet, TS Tegelvägen 5",
+  },
+  { name: "phone", imgSrc: "phone.png", text: "0707200030" },
+  { name: "mail", imgSrc: "mail.png", text: "Kontakt@example.com" },
+];
+
+articles.forEach((article) => {
+  const articleElement = document.createElement("article");
+  articleElement.classList.add(article.name);
+
+  const img = document.createElement("img");
+  img.src = article.imgSrc;
+  img.alt = article.name;
+
+  const p = document.createElement("p");
+  p.innerHTML = article.text;
+
+  articleElement.appendChild(img);
+  articleElement.appendChild(p);
+
+  headerButtonsContainer.appendChild(articleElement);
+});
+
+header.appendChild(h1);
+header.appendChild(headerDiscription);
+header.appendChild(headerButtonsContainer);
+
+if (app) {
+  app.appendChild(header);
+} else {
+  console.error("APP not found, RING 112, eller Seb");
+}
+//#endregion Header
