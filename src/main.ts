@@ -55,4 +55,3 @@ if (app) {
   console.error("APP not found, RING 112, eller Seb");
 }
 //#endregion Header
-
