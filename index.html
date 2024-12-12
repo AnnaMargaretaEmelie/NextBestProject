@@ -1,13 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Contact Form</title>
   </head>
   <body>
     <div id="app"></div>
+    <h2>Contact form</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="phone">Phone:</label><br />
+      <input type="tel" id="phone" name="phone" /><br /><br />
+
+      <label for="service">Service:</label><br />
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Choose a Service</option>
+        <option value="web_design">Web Design</option>
+        <option value="logo_design">Logo Design</option>
+        <option value="web_development">Web Development</option></select
+      ><br /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="4" required></textarea
+      ><br /><br />
+
+      <button type="submit">Send</button>
+    </form>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
+
