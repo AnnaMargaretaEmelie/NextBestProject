@@ -55,15 +55,3 @@ if (app) {
   console.error("APP not found, RING 112, eller Seb");
 }
 //#endregion Header
-
-
-const leo = "leo är bäst";
-
-const button = document.createElement("button");
-button.textContent = "Vem är bäst"; 
-document.body.appendChild(button);
-button.addEventListener("click", () => {
-  const span = document.createElement("span");
-  span.textContent = leo;
-  document.body.appendChild(span);
-});
