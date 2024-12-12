@@ -53,3 +53,52 @@ if (app) {
   console.error("APP not found, RING 112, eller Seb");
 }
 //#endregion Header
+
+
+const nameInput = document.getElementById("name") as HTMLInputElement;
+const emailInput = document.getElementById("email") as HTMLInputElement;
+const phoneInput = document.getElementById("phone") as HTMLInputElement;
+const form = document.querySelector("form") as HTMLFormElement;
+
+if (nameInput && emailInput && phoneInput && form) {
+  // Name validation: Only letters
+  nameInput.addEventListener("input", () => {
+    const namePattern = /^[a-zA-Z\s]*$/;
+    if (!namePattern.test(nameInput.value)) {
+      nameInput.setCustomValidity("Name can only contain letters and spaces.");
+    } else {
+      nameInput.setCustomValidity("");
+    }
+  });
+
+  // Email validation: Must contain @
+  emailInput.addEventListener("input", () => {
+    if (!emailInput.value.includes("@")) {
+      emailInput.setCustomValidity("Email must contain an '@' symbol.");
+    } else {
+      emailInput.setCustomValidity("");
+    }
+  });
+
+  // Phone validation: Only numbers
+  phoneInput.addEventListener("input", () => {
+    const phonePattern = /^\d*$/;
+    if (!phonePattern.test(phoneInput.value)) {
+      phoneInput.setCustomValidity("Phone number can only contain digits.");
+    } else {
+      phoneInput.setCustomValidity("");
+    }
+  });
+
+  // Prevent form submission if there are invalid fields
+  form.addEventListener("submit", (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      alert("Please fill out the form correctly.");
+    }
+  });
+} else {
+  console.error("Form elements not found");
+}
+//#endregion Form Validation
+
