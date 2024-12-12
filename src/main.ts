@@ -1,6 +1,4 @@
 import "./style.css";
-
-import "./style.css";
 //#region Header
 const app = document.getElementById("app");
 
